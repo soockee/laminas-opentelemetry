@@ -13,6 +13,10 @@ final class ConfigProvider
     {
         return [
             'dependencies' => $this->getDependencies(),
+            'opentelemetry' => [
+                'disable_module' => false,
+                'test' => 'hello, World!',
+            ],
         ];
     }
 

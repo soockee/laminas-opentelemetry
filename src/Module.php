@@ -36,7 +36,7 @@ class Module
             return;
         }
         if (($appConfig['opentelemetry']['test'] ?? false)) {
-            throw new ErrorException('Test', 0, 1, );
+            echo $appConfig['opentelemetry']['test'];
         }
 
         $this->initOpentelemetry();
@@ -48,5 +48,24 @@ class Module
                 new ConsoleSpanExporter()
             )
         );
+        $tracer = $tracerProvider->getTracer();
+
+        $rootSpan = $tracer->spanBuilder('root')->startSpan();
+        $rootSpan->activate();
+
+        try {
+            $span1 = $tracer->spanBuilder('foo')->startSpan();
+            $span1->activate();
+
+            try {
+                $span2 = $tracer->spanBuilder('bar')->startSpan();
+                echo 'OpenTelemetry welcomes PHP' . PHP_EOL;
+            } finally {
+                $span2->end();
+            }
+        } finally {
+            $span1->end();
+        }
+        $rootSpan->end();
     }
 }
