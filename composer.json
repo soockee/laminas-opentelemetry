@@ -30,7 +30,8 @@
         "php": "^7.4 || ^8.0",
         "laminas/laminas-servicemanager": "^3.11",
         "symfony/http-client": "^5.4",
-        "guzzlehttp/psr7": "^2.2"
+        "guzzlehttp/psr7": "^2.2",
+        "open-telemetry/opentelemetry": "^0.0.10"
     },
     "require-dev": {
         "laminas/laminas-eventmanager": "^3.5",

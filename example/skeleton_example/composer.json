@@ -9,12 +9,15 @@
         "skeleton",
         "framework"
     ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "require": {
         "php": "^7.4 || ~8.0.0 || ~8.1.0",
         "laminas/laminas-component-installer": "^2.4",
         "laminas/laminas-development-mode": "^3.2",
         "laminas/laminas-skeleton-installer": "^0.6",
-        "laminas/laminas-mvc": "^3.1.1"
+        "laminas/laminas-mvc": "^3.1.1",
+        "soockee/laminas-opentelemetry": "dev-master"
     },
     "autoload": {
         "psr-4": {

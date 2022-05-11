@@ -38,6 +38,8 @@ class Module
         if (($appConfig['opentelemetry']['test'] ?? false)) {
             throw new ErrorException('Test', 0, 1, );
         }
+
+        $this->initOpentelemetry();
     }
 
     public function initOpentelemetry(){
